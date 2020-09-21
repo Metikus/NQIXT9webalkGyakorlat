@@ -1,0 +1,1 @@
+# NQIXT9webalkGyakorlat
