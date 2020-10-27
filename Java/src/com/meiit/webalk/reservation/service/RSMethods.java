@@ -35,6 +35,7 @@ public class RSMethods implements ReservationService {
 	}
 	@Override
 	public void checkIn() {
+		//1 person not able to check in more than 1 place pls modify based on this
 		for (int i = 0; i < rsl.size(); i++) {
 			rsl.get(i).setActive(true);
 			rsl.get(i).setFrom(LocalDateTime.now());
@@ -42,6 +43,8 @@ public class RSMethods implements ReservationService {
 	}
 	@Override
 	public void checkOut() {
+		//1 person not able to check in more than 1 place pls modify based on this
+		//Refund calculation??
 		for (int i = 0; i < rsl.size(); i++) {
 			rsl.get(i).setActive(false);
 			rsl.get(i).setTo(LocalDateTime.now());
