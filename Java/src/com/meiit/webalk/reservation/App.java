@@ -58,10 +58,12 @@ public class App {
 	}
 	void checkIn()
 	{
+		rs.checkIn();
 		view.printCheckIn(rs.findAllReservations());
 	}
 	void checkOut()
 	{
+		rs.checkOut();
 		view.printCheckOut(rs.findBookingPerson(),rs.findAllReservations());
 	}
 }

@@ -1,5 +1,6 @@
 package com.meiit.webalk.reservation.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,19 +36,15 @@ public class RSMethods implements ReservationService {
 	}
 	@Override
 	public void checkIn() {
-		//1 person not able to check in more than 1 place pls modify based on this
-		for (int i = 0; i < rsl.size(); i++) {
-			rsl.get(i).setActive(true);
-			rsl.get(i).setFrom(LocalDateTime.now());
-		}
+			rsl.get(0).setActive(true);
+			rsl.get(0).setFrom(LocalDateTime.now());
 	}
 	@Override
 	public void checkOut() {
-		//1 person not able to check in more than 1 place pls modify based on this
-		//Refund calculation??
-		for (int i = 0; i < rsl.size(); i++) {
-			rsl.get(i).setActive(false);
-			rsl.get(i).setTo(LocalDateTime.now());
-		}
+			rsl.get(0).setActive(false);
+			rsl.get(0).setTo(LocalDateTime.now());
+			BigDecimal refund = new BigDecimal("0.1");
+			System.out.println(bp.getBalance());
+			bp.setBalance(bp.getBalance().add(rsl.get(0).getAmmount().multiply(refund)));
 	}
 }

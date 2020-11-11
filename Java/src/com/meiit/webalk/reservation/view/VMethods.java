@@ -4,12 +4,10 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 import com.meiit.webalk.reservation.domain.*;
-import com.meiit.webalk.reservation.service.Data;
 
 public class VMethods implements View {
 	
 	Scanner sc = new Scanner(System.in);
-	//Good but should be created in local
 	int counter=0;
 
 	@Override
@@ -34,7 +32,7 @@ public class VMethods implements View {
 
 	@Override
 	public void printBalance(BookingPerson a) {
-		System.out.println("Your balance is " + a.getBalance().toString() + " " + a.getCurrency().name());
+		System.out.println("Your balance is " + a.getBalance() + " " + a.getCurrency().name());
 	}
 
 	@Override
@@ -102,14 +100,9 @@ public class VMethods implements View {
 		{
 			System.out.println("Few days later");
 			System.out.println("Check out, Suprise! You are the 100th guest you get a 10% refund");
-			//Fouble convert is useless use BigDecimal methods
-			//Calculation should be in service
-			Double refund =b.get(0).getAmmount().doubleValue()*0.1;
-			a.setBalance(a.getBalance().add(new BigDecimal(refund)));
 			printBalance(a);
 		}catch(IndexOutOfBoundsException e)
 		{
-			//NICE
 			System.out.println("You don't have Reservation");
 		}
 	}
@@ -167,7 +160,6 @@ public class VMethods implements View {
 	
 	public boolean CheckR(String s) {
 		try {
-			//Use BigFecimal
 			int in = Integer.parseInt(s);
 			if(counter<in)
 			{
@@ -199,8 +191,4 @@ public class VMethods implements View {
 			System.out.println(rv.getRoom().getWing().getFloor().getHotel().getName()+", Floor: "+rv.getRoom().getWing().getFloor().getFloorNumber()+", Wing: "+rv.getRoom().getWing().getWingtype()+", Room number: "+rv.getRoom().getNumber()+", Beds: "+rv.getRoom().getBeds());
 		}
 	}
-	
-	//Meaningfull NAME chekA,B,C is not readable...
-	//Only interface defined methods will be public others private
-	
 }
