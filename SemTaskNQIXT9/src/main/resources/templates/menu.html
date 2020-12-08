@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   <head>
+      <title>Spring Boot Application</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <div class="menu">
+      <h1>Menu</h1>
+      <table class="table">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Type</th>
+               <th>Price</th>
+               <th colspan="2" width=10%>Edit</th>
+            </tr>
+         </thead>
+         <tbody>
+         <tr th:each="str : ${list}">
+            <td th:text=${str.name}></td>
+            <td th:text=${str.type}></td>
+            <td th:text=${str.price}></td>
+            <td>
+            <form action="#" th:action="@{/recipe=} + ${{str.id}}" method="get">
+               <button class="btn" th:id="'table_entry_childs_button_' + ${str.id}" type="submit">Rw</button>
+           	</form>
+           	</td>
+            <td>
+            <form action="#" th:action="@{/delete=} + ${{str.id}}" method="get">
+               <button class="btn" th:id="'table_entry_childs_button_' + ${str.id}" type="submit">Del</button>
+           	</form>
+           	</td>
+         </tr>
+         </tbody>
+      </table>
+      <p line-height=200%></p>
+      <a href="recipe"><button class="btn" type="button">Add new recipe to the menu</button></a>
+      <a href="home"><button class="btn" type="button">Home</button></a>
+      </div>
+   </body>
+
+</html>

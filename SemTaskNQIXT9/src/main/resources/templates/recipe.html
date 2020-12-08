@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head >
+    <body>
+        <div class="content">
+        <h1 line-heigh=200%>Menu</h1>
+        <form method="POST" 
+          action="#" th:action="@{/update}" th:object="${menu}">
+             <table class="rtable">
+                <tr style="display: none;">
+                    <td><label path="id">Id</label></td>
+                    <td><input path="id" th:field="*{id}" /></td>
+                </tr>
+                <tr>
+                    <td><label path="name">Name</label></td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td><label path="type">Type</label></td>
+                    <td><input type="text" th:field="*{type}"/></td>
+                </tr>
+                <tr>
+                    <td><label path="price">Price</label></td>
+                    <td><input type="number" th:field="*{price}"/></td>
+                </tr>  
+            </table>
+			<p line-height=200%></p>
+            <input class="btn" type="submit" value="Submit"/>
+            <a href="menu"><button class="btn" type="button">Cancel</button></a>
+        </form>
+        </div>
+    </body>
+</html>
