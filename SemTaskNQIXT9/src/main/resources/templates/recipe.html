@@ -1,13 +1,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
+    <title>Recipe</title>
         <link rel="stylesheet" href="style.css">
     </head >
-    <body>
-        <div class="content">
-        <h1 line-heigh=200%>Menu</h1>
-        <form method="POST" 
-          action="#" th:action="@{/update}" th:object="${menu}">
+    <body class="newbg">
+        <div class="recipe">
+        <div class="menutext">Menu</div>
+        <form method="POST" action="#" th:action="@{/save}" th:object="${menu}">
              <table class="rtable">
                 <tr style="display: none;">
                     <td><label path="id">Id</label></td>
@@ -26,9 +26,9 @@
                     <td><input type="number" th:field="*{price}"/></td>
                 </tr>  
             </table>
-			<p line-height=200%></p>
-            <input class="btn" type="submit" value="Submit"/>
-            <a href="menu"><button class="btn" type="button">Cancel</button></a>
+			<br/><br/><br/>
+            <input class="mbtn" type="submit" value="Submit"/>
+            <a href="menu"><button class="mbtn" type="button">Cancel</button></a>
         </form>
         </div>
     </body>

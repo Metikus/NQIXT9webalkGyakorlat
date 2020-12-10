@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   <head>
+      <title>View</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body class="menubg">
+      <div class="menu">
+      <div class="menutext">Menu</div>
+     	 <table class="table">
+            <tr>
+               <th>Name</th>
+               <th>Type</th>
+               <th>Price</th>
+            </tr>
+        	<tr>
+            	 <td th:text=${menu.name}></td>
+            	 <td th:text=${menu.type}></td>
+				 <td th:text=${menu.price}></td>
+         	</tr>
+      	</table>
+      </div>
+   </body>
+</html>

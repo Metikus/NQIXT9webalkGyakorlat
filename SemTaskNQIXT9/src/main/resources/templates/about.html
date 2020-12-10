@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>About</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="mainbg">
+    <div class="status">
+    <div class="title">Nine Dragon Restaurant</div>
+    </div>
+        <div class="content">
+        <div class="about">
+        <p>Éttermünk autentikus kínai étterem, amely már több mint 20 éve szolgálja az ázsiai konyha rajongóit. Kínálatunkkal és éttermünk kialakításával igyekeztünk egyértelművé tenni vendégeink számára, hogy ez a fajta vendéglátás nem a kínai gyorséttermek egyike. Lehetőséget biztosítunk kisebb-nagyobb csoportok elkülönített étkeztetésére is. Sőt külön termeink mindegyike kareoke televíziókkal rendelkezik. Várjuk szeretettel!</p>
+		<p>我們的餐廳是一家地道的中國餐廳，已經為亞洲美食愛好者服務了20多年。通過我們的產品和餐廳的設計，我們試圖向客人表明，這種款待不是中式快餐店之一。我們還為小團體和大團體提供單獨用餐的可能性。此外，我們每個單獨的房間都配有克羅克電視。我們期待您的光臨！</p>
+        </div>
+        <a href="home"><button class="mbtn" type="button">Home</button></a>
+        </div>
+        <form th:action="@{/logout}" method="post">
+        <input  class="sobtn" type="submit" value="Sign Out"/>
+        </form>
+        <div class="base">Az ősi kínai mondás szerint:<br/>"麵包屑下的所有動物都是平等的"</div>
+    </body>
+</html>

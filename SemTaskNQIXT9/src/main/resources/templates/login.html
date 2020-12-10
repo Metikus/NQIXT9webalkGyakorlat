@@ -5,13 +5,16 @@
         <title>Login</title>
         <link rel="stylesheet" href="style.css"/>
     </head>
-    <body>
+    <body class="loginbg">
+    	<div class="status">
     	<div th:if="${param.error}">
-            Invalid username and password.
+            Invalid username or password.
         </div>
         <div th:if="${param.logout}">
             You have been logged out.
-        </div>
+    	</div>
+    	</div>
+    	<div class="content">
         <h1>Login</h1>
         <form th:action="@{/login}" method="post">
             <table class="center">
@@ -24,8 +27,10 @@
                 <td> <input type="password" name="password"/></td>
             </tr>
             </table>
-            <p line-height=200%></p>
-            <div><input class="btn" type="submit" value="Sign In"/>
+            <br/><br/><br/>
+            <div><input class="sibtn" type="submit" value="Sign In"/></div>
         </form>
+        </div>
+        <div class="base">Az ősi kínai mondás szerint:<br/>"麵包屑下的所有動物都是平等的"</div>
     </body>
 </html>

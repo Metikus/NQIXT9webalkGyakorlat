@@ -29,10 +29,17 @@ public class MainController {
 	        try {
 	            model.addAttribute("menu", menuService.findById(Integer.parseInt(id)));
 	        } catch (NumberFormatException e) {
-
 	        }
 	        return "recipe";
-
+	    }
+	    
+	    @GetMapping("/view={ID}")
+	    public String formView(@PathVariable(value = "ID") String id, Model model) throws IOException {
+	        try {
+	            model.addAttribute("menu", menuService.findById(Integer.parseInt(id)));
+	        } catch (NumberFormatException e) {
+	        }
+	        return "view";
 	    }
 
 	    @GetMapping("/recipe")
@@ -41,11 +48,11 @@ public class MainController {
 	        return "recipe";
 	    }
 
-	    @PostMapping("/update")
+	    @PostMapping("/save")
 	    public String formSubmit(@ModelAttribute Menu menu, Model model) {
 	        model.addAttribute("menu", menu);
 	        menuService.save(menu);
-	        return "refresh";
+	        return "redirect:/menu";
 	    }
 
 	    @GetMapping("/delete={ID}")
@@ -53,9 +60,8 @@ public class MainController {
 	        try {
 	            menuService.delete(menuService.findById(Integer.parseInt(id)));
 	        } catch (NumberFormatException e) {
-
 	        }
-	        return "refresh";
+	        return "redirect:/menu";
 
 	    }
 }
